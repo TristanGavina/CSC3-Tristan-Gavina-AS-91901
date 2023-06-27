@@ -7662,6 +7662,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1678903375908173487, guid: 7d6bdc711844a244c8d65e99d401a1be, type: 3}
+      propertyPath: m_ApplyRootMotion
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3479001199632159708, guid: 7d6bdc711844a244c8d65e99d401a1be, type: 3}
       propertyPath: m_Actions
       value: 
@@ -7733,6 +7737,22 @@ PrefabInstance:
     - target: {fileID: 8983055865161731052, guid: 7d6bdc711844a244c8d65e99d401a1be, type: 3}
       propertyPath: m_Name
       value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 8983055865161731054, guid: 7d6bdc711844a244c8d65e99d401a1be, type: 3}
+      propertyPath: m_FlipX
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8983055865161731054, guid: 7d6bdc711844a244c8d65e99d401a1be, type: 3}
+      propertyPath: m_FlipY
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8983055865161731054, guid: 7d6bdc711844a244c8d65e99d401a1be, type: 3}
+      propertyPath: m_Size.x
+      value: 0.48
+      objectReference: {fileID: 0}
+    - target: {fileID: 8983055865161731054, guid: 7d6bdc711844a244c8d65e99d401a1be, type: 3}
+      propertyPath: m_Size.y
+      value: 0.48
       objectReference: {fileID: 0}
     - target: {fileID: 8983055865161731055, guid: 7d6bdc711844a244c8d65e99d401a1be, type: 3}
       propertyPath: m_BodyType
