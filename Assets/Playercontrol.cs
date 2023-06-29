@@ -20,6 +20,16 @@ public class Playercontrol : MonoBehaviour
         animator = GetComponent<Animator>();
     }
 
+    void Update()
+    {
+        movementInput.x = Input.GetAxisRaw("Horizontal");
+        movementInput.y = Input.GetAxisRaw("Vertical");
+
+        animator.SetFloat("Horizontal", movementInput.x);
+        animator.SetFloat("Vertical", movementInput.y);
+        animator.SetFloat("Speed", movementInput.sqrMagnitude);
+    }
+
     private void FixedUpdate(){
         //If movement input is not 0, try to move
         if(movementInput != Vector2.zero){
