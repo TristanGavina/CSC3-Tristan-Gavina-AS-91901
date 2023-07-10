@@ -3,8 +3,16 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
+public enum PlayerState
+{
+    walk,
+    attack,
+    interact
+}
+
 public class Playercontrol : MonoBehaviour
 {
+    public PlayerState currentState;
     public float collisionOffset = 0.05f;
     public ContactFilter2D movementFilter;
     public float moveSpeed;
@@ -17,8 +25,11 @@ public class Playercontrol : MonoBehaviour
 
     //Use this for initialization
     void Start() {
+        currentState = PlayerState.walk;
         animator = GetComponent<Animator>();
         myRigidbody = GetComponent<Rigidbody2D>();
+        animator.SetFloat("moveX", 0);
+        animator.SetFloat("moveY", -1);
     }
 
     //Update is called once per frame
@@ -26,9 +37,25 @@ public class Playercontrol : MonoBehaviour
         change = Vector3.zero;
         change.x = Input.GetAxisRaw("Horizontal");
         change.y = Input.GetAxisRaw("Vertical");
-        UpdateAnimationAndMove();
+        if(Input.GetButtonDown("attack") && currentState != PlayerState.attack)
+        {
+            StartCoroutine(AttackCo());
+        }
+        else if(currentState == PlayerState.walk)
+        {
+            UpdateAnimationAndMove();
+        }
     }
 
+    private IEnumerator AttackCo()
+    {
+        animator.SetBool("swordAttack", true);
+        currentState = PlayerState.attack;
+        yield return null;
+        animator.SetBool("swordAttack", false);
+        yield return new WaitForSeconds(.3f);
+        currentState = PlayerState.walk;
+    }
     void UpdateAnimationAndMove() {
         if (change != Vector3.zero) {
             animator.SetFloat("moveX", change.x);
