@@ -1,8 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.InputSystem;
-
 public enum PlayerState
 {
     walk,
@@ -34,6 +32,7 @@ public class Playercontrol : MonoBehaviour
 
     //Update is called once per frame
     void Update () {
+        change.Normalize();
         change = Vector3.zero;
         change.x = Input.GetAxisRaw("Horizontal");
         change.y = Input.GetAxisRaw("Vertical");
@@ -57,6 +56,7 @@ public class Playercontrol : MonoBehaviour
         currentState = PlayerState.walk;
     }
     void UpdateAnimationAndMove() {
+        change.Normalize();
         if (change != Vector3.zero) {
             animator.SetFloat("moveX", change.x);
             animator.SetFloat("moveY", change.y);
@@ -67,6 +67,7 @@ public class Playercontrol : MonoBehaviour
     }
 
     private void FixedUpdate() {
+        change.Normalize();
         if (canMove) {
             if(change != Vector3.zero) {
                 bool success = TryMove(change);
@@ -108,9 +109,6 @@ public class Playercontrol : MonoBehaviour
             }
         }
 
-    void OnMove(InputValue movementValue) {
-        change = movementValue.Get<Vector2>();
-    }
 
     void OnFire() {
         animator.SetTrigger("swordAttack");
