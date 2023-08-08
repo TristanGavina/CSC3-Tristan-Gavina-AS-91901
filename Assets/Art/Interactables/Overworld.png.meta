@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 49ea806db2ed18344aeecc5d018bfd58
+guid: 7dff6625ccef30d44be449bed0139c58
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -117,13 +117,34 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Inner_0
+      name: Overworld_0
       rect:
         serializedVersion: 2
-        x: 96
-        y: 368
-        width: 32
-        height: 16
+        x: 5
+        y: 258
+        width: 11
+        height: 12
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b46c21e677a4dcc4099a8298398eb049
+      internalID: -1318571461
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Overworld_1
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 258
+        width: 11
+        height: 12
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -131,8 +152,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6c22032305fafb94995da1706383cde2
-      internalID: 1195802981
+      spriteID: bad7b758c037a86448caab04c46d4d3b
+      internalID: -180373717
       vertices: []
       indices: 
       edges: []
@@ -148,7 +169,8 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Inner_0: 1195802981
+      Overworld_0: -1318571461
+      Overworld_1: -180373717
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
