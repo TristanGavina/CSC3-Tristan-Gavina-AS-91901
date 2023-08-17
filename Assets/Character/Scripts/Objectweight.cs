@@ -9,6 +9,7 @@ public class Objectweight : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        //Weight of object for pressure plate to read
         rb = GetComponent<Rigidbody2D>();
         rb.mass = mass;        
     }

@@ -5,41 +5,35 @@ using UnityEngine;
 public class DoorInteractionPressurePlate : MonoBehaviour
 {
     [SerializeField] private GameObject doorGameObject;
+    [SerializeField] private AudioSource doorOpenAudioSource = null;
+    [SerializeField] private float openDelay = 0;
+    [Space(10)]
+    [SerializeField] private AudioSource doorCloseAudioSource = null;
+    [SerializeField] private float closeDelay = 0.8f;
     private IDoor door;
-    private float timer;
 
     private void Awake()
     {
         door = doorGameObject.GetComponent<IDoor>();
     }
 
-    private void Update()
-    {
-        if (timer > 0)
-        {
-            timer -= Time.deltaTime;
-            if (timer <= 0f)
-            {
-                door.CloseDoor();
-            }
-        }
-    }
-
     private void OnTriggerEnter2D(Collider2D collider)
     {
         if (collider.GetComponent<Objectweight>() != null)
         {
-            // PLayer entered collider!
+            // Object entered collider!
             door.OpenDoor();
+            doorOpenAudioSource.PlayDelayed(openDelay);
         }
     }
 
-    private void OnTriggerStay2D(Collider2D collider)
+    private void OnTriggerExit2D(Collider2D collider)
     {
         if(collider.GetComponent<Objectweight>() != null)
         {
-            //Player still on top of collider
-            timer = 30f;
+            //Object still on top of collider
+            door.CloseDoor();
+            doorCloseAudioSource.PlayDelayed(closeDelay);
         }
     }
 }

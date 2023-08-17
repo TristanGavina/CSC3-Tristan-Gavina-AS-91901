@@ -17,16 +17,19 @@ public class MainMenu : MonoBehaviour
         
     }
 
+    //New game button
     public void NewGame()
     {
         SceneManager.LoadScene("SampleScene");
     }
 
+    //Quit game button
     public void QuitGame()
     {
         Application.Quit();
     }
 
+    //Continue button
     public void Continue()
     {
         SceneManager.LoadScene("LoadSaves");

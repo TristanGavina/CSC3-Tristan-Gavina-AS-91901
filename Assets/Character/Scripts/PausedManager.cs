@@ -19,6 +19,7 @@ public class PausedManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //Calling ChangePaused()
         if (Input.GetButtonDown("pause"))
         {
             ChangePause();
@@ -27,6 +28,7 @@ public class PausedManager : MonoBehaviour
 
     public void ChangePause()
     {
+        //If paused button is pressed
         isPaused = !isPaused;
         if(isPaused)
             {
@@ -40,6 +42,7 @@ public class PausedManager : MonoBehaviour
             }
     }
 
+    //Quit to main button
     public void QuitToMain()
     {
         SceneManager.LoadScene(mainMenu);

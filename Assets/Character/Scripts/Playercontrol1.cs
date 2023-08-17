@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Playercontrol1 : MonoBehaviour
 {
+    //Variables
     public float speed;
     private Rigidbody2D myRigidbody;
     private Vector3 change;
@@ -12,6 +13,7 @@ public class Playercontrol1 : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        //Player animation imports
         currentState = PlayerState.walk;
         animator = GetComponent<Animator>();
         myRigidbody = GetComponent<Rigidbody2D>();  
@@ -20,9 +22,11 @@ public class Playercontrol1 : MonoBehaviour
     // Update is called once per frame
     void Update () 
     {
+        //Player movement
         change = Vector3.zero;
         change.x = Input.GetAxisRaw("Horizontal");
         change.y = Input.GetAxisRaw("Vertical");
+        //Player attack animation call
         if(Input.GetButtonDown("attack") && currentState != PlayerState.attack)
         {
             StartCoroutine(AttackCo());
@@ -35,6 +39,7 @@ public class Playercontrol1 : MonoBehaviour
 
     private IEnumerator AttackCo()
     {
+        //Player attack animation call
         animator.SetBool("swordAttack", true);
         currentState = PlayerState.attack;
         yield return null;
@@ -45,6 +50,7 @@ public class Playercontrol1 : MonoBehaviour
     
     void UpdateAnimationAndMove()
     {
+        //Player movement call
         change.Normalize();
         if (change != Vector3.zero)
         {
@@ -59,6 +65,7 @@ public class Playercontrol1 : MonoBehaviour
         }
     }
 
+    //Player movement speed
     void MoveCharacter()
     {
         myRigidbody.MovePosition(transform.position + change * speed * Time.fixedDeltaTime);
