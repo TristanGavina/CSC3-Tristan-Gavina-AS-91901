@@ -15,7 +15,7 @@ public class Sign : MonoBehaviour
     void Update()
     {
         //Player interaction with object
-        if(Input.GetKeyDown(KeyCode.Space) && playerInRange){
+        if(Input.GetButtonDown("Submit") && playerInRange){
             if(dialogBox.activeInHierarchy){
                 dialogBox.SetActive(false);
             }else{
