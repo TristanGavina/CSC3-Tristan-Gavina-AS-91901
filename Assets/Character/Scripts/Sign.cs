@@ -15,6 +15,7 @@ public class Sign : MonoBehaviour
     void Update()
     {
         //Player interaction with object
+        //GetButtonDown "Submit" is getting the input from the input manager named "Submit"
         if(Input.GetButtonDown("Submit") && playerInRange){
             if(dialogBox.activeInHierarchy){
                 dialogBox.SetActive(false);
